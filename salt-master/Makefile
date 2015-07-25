@@ -12,6 +12,9 @@ deploy:
 	docker push $(IMAGE_NAME):$(IMAGE_VERSION)
 	# docker push $(IMAGE_NAME):latest
 
+enter:
+	docker exec -it salt-master /bin/bash
+
 run:
 	docker run --detach=true --name=salt-master $(IMAGE_NAME):$(IMAGE_VERSION) -l debug
 
